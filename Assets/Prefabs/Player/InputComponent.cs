@@ -8,6 +8,7 @@ public class InputComponent : MonoBehaviour
     PlayerInput playerInput;
     [SerializeField] XRHand rightHand;
     [SerializeField] XRHand leftHand;
+    float triggerValue;
 
      private void Awake()
     {
@@ -31,5 +32,7 @@ public class InputComponent : MonoBehaviour
     {
         playerInput.XRRightController.Position.performed += ctx => rightHand.UpdateLocalPosition(ctx.ReadValue<Vector3>());
         playerInput.XRRightController.Rotation.performed += ctx => rightHand.UpdateLocalRotation(ctx.ReadValue<Quaternion>());
+        playerInput.XRRightController.TriggerAxis.performed += ctx => rightHand.SetTriggerValue(ctx.ReadValue<float>());
+        playerInput.XRRightController.GripAxis.performed += ctx => rightHand.SetGripValue(ctx.ReadValue<float>());
     }
 }

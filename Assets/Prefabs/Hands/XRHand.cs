@@ -17,5 +17,13 @@ public class XRHand : MonoBehaviour
         transform.localRotation = rotation;
     }
 
+    public void SetTriggerValue(float numbah)
+    {
+        handAnimator.SetFloat("Trigger", numbah);
+    }
 
+    public void SetGripValue(float numbah)
+    {
+        handAnimator.SetFloat("Grip", numbah);
+    }
 }
