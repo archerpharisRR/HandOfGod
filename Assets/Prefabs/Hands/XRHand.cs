@@ -11,10 +11,32 @@ public class XRHand : MonoBehaviour
     [SerializeField] GameObject pointerObject;
     GameObject rayCastedObject;
     [SerializeField] Transform teleportLocation;
+    [SerializeField] LazerPointer lazerPointer;
+    [SerializeField] GameObject GrabbingPoint;
+    [SerializeField] Transform ThrowVelocityRefPoint;
+    
 
+    IDragable objectInHand;
+    Vector3 Velocity;
+    Vector3 OldPosition;
 
-    private void Awake()
+   IEnumerator CalculateAverageSpeed()
     {
+        while (true)
+        {
+            Velocity = (ThrowVelocityRefPoint.position - OldPosition) / 0.1f;
+            OldPosition = ThrowVelocityRefPoint.position;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private void Start()
+    {
+        if(lazerPointer == null)
+        {
+           lazerPointer =  GetComponent<LazerPointer>();
+        }
+        StartCoroutine(CalculateAverageSpeed());
 
     }
 
@@ -54,5 +76,40 @@ public class XRHand : MonoBehaviour
     {
         handAnimator.SetFloat("Grip", numbah);
 
+    }
+
+    internal void TriggerPressed()
+    {
+        if(lazerPointer!= null && lazerPointer.GetFocusedObject(out GameObject objectInFocus, out Vector3 ContactPoint))
+        {
+            IDragable objectAsDraggable = objectInFocus.GetComponent<IDragable>();
+            if(objectAsDraggable == null)
+            {
+                objectAsDraggable = objectInFocus.GetComponentInParent<IDragable>();
+            }
+
+            if(objectAsDraggable != null)
+            {
+                objectAsDraggable.Grabbed(GrabbingPoint, ContactPoint);
+                objectInHand = objectAsDraggable;
+            }
+        }
+    }
+
+    internal void TriggerReleased()
+    {
+        if(objectInHand != null)
+        {
+            objectInHand.Released(Velocity);
+        }
+
+
+    }
+
+    private void Update()
+    {
+
+
+        
     }
 }

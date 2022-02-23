@@ -38,7 +38,7 @@ public class Interaction : MonoBehaviour
         {
             return;
         }
-        Debug.Log("We grabbing bois");
+
         touchedObject.transform.parent = transform;
         rb.isKinematic = true;
         
@@ -51,7 +51,7 @@ public class Interaction : MonoBehaviour
         {
             return;
         }
-        Debug.Log("we letting go bois");
+
         touchedObject.transform.parent = null;
         rb.isKinematic = false;
         touchedObject = null;
