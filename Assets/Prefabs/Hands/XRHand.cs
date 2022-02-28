@@ -14,6 +14,7 @@ public class XRHand : MonoBehaviour
     [SerializeField] LazerPointer lazerPointer;
     [SerializeField] GameObject GrabbingPoint;
     [SerializeField] Transform ThrowVelocityRefPoint;
+    [SerializeField] GameObject planet;
     
 
     IDragable objectInHand;
@@ -43,6 +44,24 @@ public class XRHand : MonoBehaviour
     public void UpdateLocalPosition(Vector3 location)
     {
         transform.localPosition = location;
+    }
+
+    public Vector3 LocalPosition()
+    {
+        return transform.localPosition;
+    }
+
+    public Quaternion LocalRotation()
+    {
+        return transform.localRotation;
+    }
+
+    public void UpdateStickPosition(Vector2 direction)
+    {
+        Debug.Log("Position is: " + direction);
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        planet.transform.rotation = Quaternion.Euler(new Vector3(0, -angle, angle));
     }
 
     internal void UpdateLocalRotation(Quaternion rotation)
