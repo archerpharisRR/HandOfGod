@@ -671,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707785502407153686, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
       propertyPath: PointerTraceLayerMask.m_Bits
-      value: 63
+      value: 191
       objectReference: {fileID: 0}
     - target: {fileID: 9051937181075255505, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
       propertyPath: planet
