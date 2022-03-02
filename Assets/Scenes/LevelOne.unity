@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43718317, g: 0.75444984, b: 1.0290304, a: 1}
+  m_IndirectSpecularColor: {r: 0.4370247, g: 0.7542998, b: 1.0289823, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -418,11 +418,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 423888, guid: d537224908c5f444f86c9e57e0c7234c, type: 3}
   m_PrefabInstance: {fileID: 147601625}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &194466217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1968476592218994, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
-  m_PrefabInstance: {fileID: 206630170}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &201564352
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,35 +524,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4889916270699016, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
   m_PrefabInstance: {fileID: 206630170}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &206630173
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194466217}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.95, z: 0.31}
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!54 &206630174
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194466217}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &215834216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7962,6 +7928,10 @@ PrefabInstance:
       propertyPath: orbitAround
       value: 
       objectReference: {fileID: 301881082}
+    - target: {fileID: 8182358692424665555, guid: ce2ff5f46bc3f27459eb94367d62084c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.34
+      objectReference: {fileID: 0}
     - target: {fileID: 8812413472095031254, guid: ce2ff5f46bc3f27459eb94367d62084c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8015,6 +7985,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 578697057}
     m_Modifications:
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: MaxSpawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: MinSpawnInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: threats.Array.size
       value: 1
