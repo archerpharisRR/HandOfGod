@@ -8,6 +8,8 @@ public class Car : Threats, IDragable
     [SerializeField] Transform carPivot;
     [SerializeField] float laneChangingSpeed = 10f;
     [SerializeField] LayerMask LaneDetectionMask;
+    [SerializeField] int damage;
+
     GameObject dragRef;
 
     Transform destinationLane;
@@ -29,6 +31,11 @@ public class Car : Threats, IDragable
     {
         dragRef.transform.position = grabPoint;
         dragRef.transform.parent = grabber.transform;
+    }
+
+    public float DamageDealt()
+    {
+        return damage;
     }
 
 
@@ -79,7 +86,8 @@ public class Car : Threats, IDragable
 
     private void Update()
     {
-        if(dragRef.transform.parent != null && Lanes.Length != 0)
+
+        if (dragRef.transform.parent != null && Lanes.Length != 0)
         {
             Transform closestLane = Lanes[0];
             float cloestDistance = Vector3.Distance(dragRef.transform.position, closestLane.position);
@@ -103,6 +111,7 @@ public class Car : Threats, IDragable
 
         float lerpAlpha = Mathf.Clamp(Time.deltaTime * laneChangingSpeed, 0f, 1f);
         carPivot.rotation = Quaternion.Slerp(carPivot.rotation, destinationLane.parent.rotation, lerpAlpha);
+        
     }
 
     public void Released(Vector3 ThrowVelocity)

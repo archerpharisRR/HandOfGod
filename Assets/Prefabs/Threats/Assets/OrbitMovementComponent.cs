@@ -13,6 +13,7 @@ public class OrbitMovementComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if(orbitAround == null)
         {
             orbitAround = FindObjectOfType<Earth>()?.transform;
@@ -30,12 +31,25 @@ public class OrbitMovementComponent : MonoBehaviour
         transform.rotation = spawnRot;
     }
 
+    public void DestroyCar()
+    {
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(orbitAxis.x * OrbitAngularSpeed * Time.deltaTime,
                         orbitAxis.y * OrbitAngularSpeed * Time.deltaTime,
                         orbitAxis.z * OrbitAngularSpeed * Time.deltaTime);
+
+        if(transform.eulerAngles.x <= 1)
+        {
+            Invoke("DestroyCar", 4f);
+        }
+
+
+
 
     }
 }
