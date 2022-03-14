@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class XRHand : MonoBehaviour
+public class XRHand : MonoBehaviour, IXRControllerInterface
 {
 
     [SerializeField] Animator handAnimator;
@@ -130,5 +130,14 @@ public class XRHand : MonoBehaviour
 
 
         
+    }
+
+    public Vector2 GetPointerScreenPosition()
+    {
+        if (lazerPointer != null)
+        {
+            return lazerPointer.getPointerScreenPosition();
+        }
+        return Vector2.zero;
     }
 }

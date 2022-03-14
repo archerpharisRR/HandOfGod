@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,5 +30,12 @@ public class LazerPointer : MonoBehaviour
         {
             lineRenderer = GetComponent<LineRenderer>();
         }
+    }
+
+    internal Vector2 getPointerScreenPosition()
+    {
+        float traceLength = (lineRenderer.GetPosition(1) - lineRenderer.GetPosition(0)).magnitude;
+        Vector3 PointerPosition = transform.position + transform.forward * traceLength;
+        return Camera.main.WorldToScreenPoint(PointerPosition);
     }
 }
