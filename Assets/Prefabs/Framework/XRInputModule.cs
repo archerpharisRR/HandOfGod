@@ -136,7 +136,7 @@ public class XRInputModule : PointerInputModule
         if (pointerDownObject != null)
         {
             ExecuteEvents.Execute(pointerDownObject, eventData, ExecuteEvents.pointerDownHandler);
-            eventData.pointerCurrentRaycast = eventData.pointerCurrentRaycast;
+            eventData.pointerPressRaycast = eventData.pointerCurrentRaycast;
             eventData.eligibleForClick = true;
             eventData.pointerPress = pointerDownObject;
 
