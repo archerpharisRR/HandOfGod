@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
 public interface IXRControllerInterface
@@ -47,16 +48,47 @@ public class XRInputModule : PointerInputModule
         playerInput.XRLeftController.TriggerPress.performed += LeftTriggerPressed;
         playerInput.XRRightController.TriggerPress.canceled += OnRightTriggerReleased;
         playerInput.XRLeftController.TriggerPress.canceled += OnLeftTriggerReleased;
+        playerInput.XRRightController.Position.performed += OnRightTriggerMoved;
+        playerInput.XRLeftController.Position.performed += OnLeftTriggerMoved;
     }
+
+    void OnTriggerMoved(IXRControllerInterface controller, PointerEventData eventData)
+    {
+        if(controller == null || eventData == null)
+        {
+            return;
+        }
+        eventData.position = controller.GetPointerScreenPosition();
+        //List<RaycastResult> rayCastResult = new List<RaycastResult>();
+        //eventSystem.RaycastAll(eventData, rayCastResult);
+        //eventData.pointerCurrentRaycast = FindFirstRaycast(rayCastResult);
+        ProcessMove(eventData);
+        if (eventData.dragging)
+        {
+            ExecuteEvents.Execute(eventData.pointerDrag, eventData, ExecuteEvents.dragHandler);
+        }
+    }
+
+    private void OnRightTriggerMoved(InputAction.CallbackContext obj)
+    {
+        OnTriggerMoved(RightControllerInterface, rightControllerData);
+    }
+
+    private void OnLeftTriggerMoved(InputAction.CallbackContext obj)
+    {
+        OnTriggerMoved(LeftControllerInterface, leftControllerData);
+    }
+
+
 
     private void OnRightTriggerReleased(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnTriggerPressed(RightControllerInterface, rightControllerData);
+        OnTriggerReleased(RightControllerInterface, rightControllerData);
     }
 
     private void OnLeftTriggerReleased(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnTriggerPressed(LeftControllerInterface, leftControllerData);
+        OnTriggerReleased(LeftControllerInterface, leftControllerData);
     }
 
     void OnTriggerReleased(IXRControllerInterface controller, PointerEventData eventData)
@@ -65,14 +97,25 @@ public class XRInputModule : PointerInputModule
         {
             return;
         }
-        eventData.position = RightControllerInterface.GetPointerScreenPosition();
+        eventData.position = controller.GetPointerScreenPosition();
         List<RaycastResult> rayCastResult = new List<RaycastResult>();
         eventSystem.RaycastAll(eventData, rayCastResult);
         eventData.pointerCurrentRaycast = FindFirstRaycast(rayCastResult);
 
-        ExecuteEvents.Execute(eventData.pointerPress, eventData, ExecuteEvents.pointerUpHandler)
+        ExecuteEvents.Execute(eventData.pointerPress, eventData, ExecuteEvents.pointerUpHandler);
+        GameObject currentPointerDown = ExecuteEvents.GetEventHandler<IPointerDownHandler>(eventData.pointerCurrentRaycast.gameObject);
+        if (eventData.pointerPress == currentPointerDown)
+        {
+            ExecuteEvents.Execute(eventData.pointerPress, eventData, ExecuteEvents.pointerClickHandler);
+        }
+        eventData.pointerPress = null;
 
-
+        if (eventData.dragging)
+        {
+            ExecuteEvents.Execute(eventData.pointerDrag, eventData, ExecuteEvents.endDragHandler);
+            eventData.pointerDrag = null;
+            eventData.dragging = false;
+        }
 
 
     }
@@ -84,7 +127,7 @@ public class XRInputModule : PointerInputModule
             return;
         }
 
-        eventData.position = RightControllerInterface.GetPointerScreenPosition();
+        eventData.position = controller.GetPointerScreenPosition();
         List<RaycastResult> rayCastResult = new List<RaycastResult>();
         eventSystem.RaycastAll(eventData, rayCastResult);
         eventData.pointerCurrentRaycast = FindFirstRaycast(rayCastResult);
@@ -97,7 +140,16 @@ public class XRInputModule : PointerInputModule
             eventData.eligibleForClick = true;
             eventData.pointerPress = pointerDownObject;
 
-            ExecuteEvents.Execute(eventData.pointerPress, eventData, ExecuteEvents.pointerUpHandler);
+            
+        }
+        GameObject pointderDragObject = ExecuteEvents.GetEventHandler<IDragHandler>(eventData.pointerCurrentRaycast.gameObject);
+
+        if (pointderDragObject != null)
+        {
+            ExecuteEvents.Execute(pointderDragObject, eventData, ExecuteEvents.initializePotentialDrag);
+            eventData.pointerCurrentRaycast = eventData.pointerCurrentRaycast;
+            eventData.dragging = true;
+            eventData.pointerDrag = pointderDragObject;
         }
     }
 
