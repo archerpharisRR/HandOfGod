@@ -10,6 +10,11 @@ public class Spinner : MonoBehaviour, IDragable
     [SerializeField] [Range(0, 1)] float Damping = 0.5f;
     [SerializeField] float spinSpeed = 20f;
 
+    public GameObject GetGameObject()
+    {
+        return null;
+    }
+
     public void Grabbed(GameObject grabber, Vector3 grabPoint)
     {
         LookRef.transform.position = grabPoint;

@@ -144,6 +144,8 @@ MonoBehaviour:
   teleportLocation: {fileID: 1027233897390020830}
   lazerPointer: {fileID: 8707785502407153686}
   GrabbingPoint: {fileID: 0}
+  ThrowVelocityRefPoint: {fileID: 0}
+  planet: {fileID: 0}
 --- !u!1 &8088200235479710242
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CameraFloorOffsetObject: {fileID: 8088200236128010142}
   m_RequestedTrackingMode: 0
-  m_TrackingOriginMode: 1
+  m_TrackingOriginMode: 2
   m_TrackingSpace: 0
   m_CameraYOffset: 1.36144
 --- !u!114 &6360692302683795639

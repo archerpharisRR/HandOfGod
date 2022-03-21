@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1875520149517828200}
   - component: {fileID: 9049841256869716016}
   - component: {fileID: 7890209764742505519}
+  - component: {fileID: -4605100056673268371}
   m_Layer: 0
   m_Name: Rock Type2 04
   m_TagString: Untagged
@@ -149,6 +150,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4605100056673268371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70707052644b30d4e8f054542c95db5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: bef12ae8a8cd5e04890153b902a7c209, type: 3}
 --- !u!1001 &2238304586096966515
 PrefabInstance:
   m_ObjectHideFlags: 0

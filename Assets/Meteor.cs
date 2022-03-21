@@ -55,4 +55,9 @@ public class Meteor : MonoBehaviour, IDragable
         animator.enabled = true;
 
     }
+
+    public GameObject GetGameObject()
+    {
+        return null;
+    }
 }

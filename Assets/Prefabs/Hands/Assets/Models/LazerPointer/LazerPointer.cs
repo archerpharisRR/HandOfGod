@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LazerPointer : MonoBehaviour
 {
@@ -32,10 +33,24 @@ public class LazerPointer : MonoBehaviour
         }
     }
 
-    internal Vector2 getPointerScreenPosition()
+    internal Vector2 GetPointerScreenPosition()
     {
         float traceLength = (lineRenderer.GetPosition(1) - lineRenderer.GetPosition(0)).magnitude;
         Vector3 PointerPosition = transform.position + transform.forward * traceLength;
         return Camera.main.WorldToScreenPoint(PointerPosition);
+    }
+
+    public GameObject GetCurrentPointingUI()
+    {
+
+        List<RaycastResult> UIObjects = new List<RaycastResult>();
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = GetPointerScreenPosition();
+        EventSystem.current.RaycastAll(eventData,UIObjects);
+        if(UIObjects.Count > 0)
+        {
+            return UIObjects[0].gameObject;
+        }
+        return null;
     }
 }

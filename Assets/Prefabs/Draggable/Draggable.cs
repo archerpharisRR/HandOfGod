@@ -10,6 +10,12 @@ public class Draggable : MonoBehaviour, IDragable
     [SerializeField] float HorizontalSpeed = 5f;
     float h = 0;
     float v = 0;
+
+    public GameObject GetGameObject()
+    {
+        return null;
+    }
+
     public void Grabbed(GameObject grabber, Vector3 grabPoint)
     {
         Debug.Log($"{grabber.name} grabbed me");

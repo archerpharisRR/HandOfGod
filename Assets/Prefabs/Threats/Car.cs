@@ -149,4 +149,9 @@ public class Car : Threats, IDragable
             }
         }
     }
+
+    public GameObject GetGameObject()
+    {
+        return null;
+    }
 }

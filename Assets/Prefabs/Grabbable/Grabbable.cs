@@ -65,4 +65,9 @@ public class Grabbable : MonoBehaviour, IDragable
         }
 
     }
+
+    public GameObject GetGameObject()
+    {
+        return null;
+    }
 }
