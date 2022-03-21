@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4370247, g: 0.7542998, b: 1.0289823, a: 1}
+  m_IndirectSpecularColor: {r: 0.15884396, g: 0.5173062, b: 1.039135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2630,7 +2630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3682838547792143144, guid: f97bf4e18990faa4cae05f5418e9cfa6, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3682838547792143144, guid: f97bf4e18990faa4cae05f5418e9cfa6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6218,7 +6218,7 @@ MonoBehaviour:
   meteorPrefab: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
   spawnRadius: 50
   minSpawnInterval: 1
-  maxSpawnInterval: 3
+  maxSpawnInterval: 10
   meteorSpeed: 45
   playerPos: {fileID: 1018971168}
 --- !u!4 &1464904001
@@ -9253,7 +9253,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2103285774
 Rigidbody:
@@ -9504,16 +9504,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: MaxSpawnInterval
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: threats.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: threats.Array.data[0]
       value: 
       objectReference: {fileID: 1787610437, guid: ce2ff5f46bc3f27459eb94367d62084c, type: 3}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threats.Array.data[1]
+      value: 
+      objectReference: {fileID: 6676546569404666450, guid: decc2ba5add7b984aab134a07b436422, type: 3}
     - target: {fileID: 8699032818000546120, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: m_Name
       value: ThreatSpawner

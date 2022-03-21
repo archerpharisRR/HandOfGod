@@ -5055,6 +5055,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7683246715478118735, guid: b343cebda25858041a00a7c78aec6182, type: 3}
+      propertyPath: orbitAxis.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7683246715478118735, guid: b343cebda25858041a00a7c78aec6182, type: 3}
+      propertyPath: orbitAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7683246715478118735, guid: b343cebda25858041a00a7c78aec6182, type: 3}
       propertyPath: OrbitAngularSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -5165,7 +5173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0dc45ea463530c045b0779281bb96b87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.29
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0dc45ea463530c045b0779281bb96b87, type: 3}
       propertyPath: m_LocalPosition.z

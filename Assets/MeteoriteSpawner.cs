@@ -39,7 +39,6 @@ public class MeteoriteSpawner : MonoBehaviour
         Rigidbody rb = newMeteor.GetComponent<Rigidbody>();
         newMeteor.transform.LookAt(playerPos);
         rb.velocity = newMeteor.transform.forward * meteorSpeed;
-        Destroy(newMeteor, 4f);
         
     }
 
