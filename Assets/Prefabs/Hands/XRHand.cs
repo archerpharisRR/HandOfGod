@@ -60,8 +60,19 @@ public class XRHand : MonoBehaviour, IXRControllerInterface
     {
         Debug.Log("Position is: " + direction);
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        planet.transform.rotation = Quaternion.Euler(new Vector3(0, -angle, angle));
+        if (lazerPointer != null && lazerPointer.GetFocusedObject(out GameObject objectInFocus, out Vector3 dsad))
+        {
+            GameObject item = objectInFocus;
+            if(direction.y > 0)
+            {
+                Debug.Log("we're pushing up");
+
+            }
+        }
+
+        //this is code to rotate the earth with the stick. Messes with car spawns, don't use it.
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //planet.transform.rotation = Quaternion.Euler(new Vector3(0, -angle, angle));
     }
 
     internal void UpdateLocalRotation(Quaternion rotation)
@@ -160,17 +171,22 @@ public class XRHand : MonoBehaviour, IXRControllerInterface
     {
         InventoryComponent item = null;
         GameObject currentObjectOverUI = lazerPointer.GetCurrentPointingUI();
-        if (objectInHand as UnityEngine.Object)
+
+        if (lazerPointer != null && lazerPointer.GetFocusedObject(out GameObject objectInFocus, out Vector3 dsad) && currentObjectOverUI)
         {
-            item = objectInHand.GetGameObject().GetComponent<InventoryComponent>();
+            item = objectInFocus.GetComponent<InventoryComponent>();
+            InventorySlot slot = currentObjectOverUI.GetComponent<InventorySlot>();
+            slot.StoreItem(item);
+
         }
 
-        InventorySlot slot = GetCurrentOverSlot();
-        if(slot != null && slot.IsEmpty() && item != null)
-        {
-            slot.StoreItem(item);
-            objectInHand = null;
-        }
+        //if (objectInHand as UnityEngine.Object && currentObjectOverUI)
+        //{
+            
+        //}
+
+
+
         if(objectInHand as UnityEngine.Object)
         {
             objectInHand.Released(Velocity);

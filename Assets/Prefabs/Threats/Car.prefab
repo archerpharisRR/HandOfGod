@@ -5150,7 +5150,7 @@ MonoBehaviour:
   LaneDetectionMask:
     serializedVersion: 2
     m_Bits: 128
-  damage: 20
+  damage: 100
 --- !u!4 &8812413472095031254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2234461786361335711, guid: b343cebda25858041a00a7c78aec6182, type: 3}

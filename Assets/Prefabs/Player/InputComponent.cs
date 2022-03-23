@@ -47,7 +47,7 @@ public class InputComponent : MonoBehaviour
         playerInput.XRLeftController.TriggerPress.performed += ctx => leftHand.TriggerPressed();
         playerInput.XRRightController.TriggerPress.canceled += ctx => rightHand.TriggerReleased();
         playerInput.XRLeftController.TriggerPress.canceled += ctx => leftHand.TriggerReleased();
-        //playerInput.XRLeftController.LeftStick.performed += ctx => leftHand.UpdateStickPosition(ctx.ReadValue<Vector2>());
+        playerInput.XRLeftController.LeftStick.performed += ctx => leftHand.UpdateStickPosition(ctx.ReadValue<Vector2>());
 
     }
 

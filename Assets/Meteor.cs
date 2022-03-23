@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Meteor : MonoBehaviour, IDragable
     MeshRenderer mr;
     Rigidbody rb;
     Animator animator;
+    [SerializeField] int damage;
 
 
     private void Awake()
@@ -59,5 +61,10 @@ public class Meteor : MonoBehaviour, IDragable
     public GameObject GetGameObject()
     {
         return null;
+    }
+
+    internal float DamageDealt()
+    {
+        return damage;
     }
 }
