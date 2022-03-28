@@ -10272,7 +10272,7 @@ PrefabInstance:
       objectReference: {fileID: 1252070301}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: MaxSpawnInterval
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: threats.Array.size
@@ -10284,6 +10284,34 @@ PrefabInstance:
       objectReference: {fileID: 1787610437, guid: ce2ff5f46bc3f27459eb94367d62084c, type: 3}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: threats.Array.data[1]
+      value: 
+      objectReference: {fileID: 7698937902071754160, guid: decc2ba5add7b984aab134a07b436422, type: 3}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.data[0].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.data[1].Weight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.data[0].maxCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.data[1].maxCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.data[0].ThreatToSpawn
+      value: 
+      objectReference: {fileID: 1787610437, guid: ce2ff5f46bc3f27459eb94367d62084c, type: 3}
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: threatPrefabs.Array.data[1].ThreatToSpawn
       value: 
       objectReference: {fileID: 7698937902071754160, guid: decc2ba5add7b984aab134a07b436422, type: 3}
     - target: {fileID: 8699032818000546120, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
