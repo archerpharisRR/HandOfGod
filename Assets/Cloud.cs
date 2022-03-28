@@ -59,6 +59,7 @@ public class Cloud : Threats, IDragable
         transform.position = grabPoint;
         transform.parent = grabber.transform;
         rb.isKinematic = true;
+        omc.enabled = false;
  
     }
 

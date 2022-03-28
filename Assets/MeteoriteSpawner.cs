@@ -11,6 +11,7 @@ public class MeteoriteSpawner : MonoBehaviour
     [SerializeField] float maxSpawnInterval = 10f;
     [SerializeField] float meteorSpeed;
     [SerializeField] Transform playerPos;
+    [SerializeField] Counter counter;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,23 @@ public class MeteoriteSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+        if(counter.timer >= 10 && counter.timer < 20)
+        {
+            Debug.Log("difficulty level 1");
+            maxSpawnInterval = 8f;
+        }
+        if (counter.timer >= 21 && counter.timer < 30)
+        {
+            Debug.Log("difficulty level 2");
+            maxSpawnInterval = 6f;
+        }
+
+        if (counter.timer >= 31)
+        {
+            Debug.Log("difficulty level 3");
+            maxSpawnInterval = 4f;
+        }
+
     }
 
     void SpawnMeteor()

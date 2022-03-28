@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333623e04b49e3e4f84704f659577aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   regenSpeed: 25
   slider: {fileID: 23834710}
   healtImage: {fileID: 123273554}
@@ -973,6 +973,10 @@ PrefabInstance:
     - target: {fileID: 7347424728712765847, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
       propertyPath: m_Name
       value: XRHandRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7347424728712765847, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7715754150675813772, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1074,6 +1078,10 @@ PrefabInstance:
       propertyPath: planet
       value: 
       objectReference: {fileID: 301881081}
+    - target: {fileID: 9051937181075255505, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 796141048}
     - target: {fileID: 9051937181075255505, guid: 3c6cc18e803b7cd4484763b3130a20d9, type: 3}
       propertyPath: GrabbingPoint
       value: 
@@ -6517,6 +6525,7 @@ MonoBehaviour:
   maxSpawnInterval: 10
   meteorSpeed: 45
   playerPos: {fileID: 1018971168}
+  counter: {fileID: 1252070301}
 --- !u!4 &1464904001
 Transform:
   m_ObjectHideFlags: 0
@@ -7317,7 +7326,7 @@ GameObject:
   - component: {fileID: 1616382008}
   - component: {fileID: 1616382007}
   - component: {fileID: 1616382012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7582,7 +7591,7 @@ GameObject:
   - component: {fileID: 1634720532}
   - component: {fileID: 1634720531}
   - component: {fileID: 1634720536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9283,7 +9292,7 @@ GameObject:
   - component: {fileID: 2068735004}
   - component: {fileID: 2068735003}
   - component: {fileID: 2068735008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9623,7 +9632,7 @@ GameObject:
   - component: {fileID: 2103285770}
   - component: {fileID: 2103285769}
   - component: {fileID: 2103285774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10257,6 +10266,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 578697057}
     m_Modifications:
+    - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 1252070301}
     - target: {fileID: -8361556754066096157, guid: ca5a774f926a6b742a1f9c773cd99e6f, type: 3}
       propertyPath: MaxSpawnInterval
       value: 10

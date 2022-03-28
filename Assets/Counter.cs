@@ -8,7 +8,7 @@ using TMPro;
 public class Counter : MonoBehaviour
 {
     TextMeshProUGUI tmpGUI;
-    [SerializeField] float timer = 0;
+    public float timer = 0;
     [SerializeField] float climbSpeed = 1f;
 
     private void Start()

@@ -15,11 +15,14 @@ public class XRHand : MonoBehaviour, IXRControllerInterface
     [SerializeField] GameObject GrabbingPoint;
     [SerializeField] Transform ThrowVelocityRefPoint;
     [SerializeField] GameObject planet;
+
     
 
     IDragable objectInHand;
     Vector3 Velocity;
     Vector3 OldPosition;
+    GameObject grabbedObject;
+    Rigidbody rigidBody;
 
    IEnumerator CalculateAverageSpeed()
     {
@@ -60,14 +63,22 @@ public class XRHand : MonoBehaviour, IXRControllerInterface
     {
         Debug.Log("Position is: " + direction);
 
+        
+
         if (lazerPointer != null && lazerPointer.GetFocusedObject(out GameObject objectInFocus, out Vector3 dsad))
         {
             GameObject item = objectInFocus;
-            if(direction.y > 0)
-            {
-                Debug.Log("we're pushing up");
+            grabbedObject = item;
+            //rigidBody = grabbedObject.GetComponent<Rigidbody>();
+            //rigidBody.MovePosition(grabbedObject.transform.position + lazerPointer.transform.forward * direction.y * 5f * Time.fixedDeltaTime);
+            grabbedObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            grabbedObject.transform.Translate(lazerPointer.transform.forward * direction.y * 10f * Time.fixedDeltaTime);
 
-            }
+        }
+        else
+        {
+            //grabbedObject = null;
+            
         }
 
         //this is code to rotate the earth with the stick. Messes with car spawns, don't use it.
@@ -116,12 +127,15 @@ public class XRHand : MonoBehaviour, IXRControllerInterface
             if(objectAsDraggable == null)
             {
                 objectAsDraggable = objectInFocus.GetComponentInParent<IDragable>();
+                
             }
 
             if(objectAsDraggable != null)
             {
                 objectAsDraggable.Grabbed(GrabbingPoint, ContactPoint);
                 objectInHand = objectAsDraggable;
+          
+
             }
         }
 
@@ -198,8 +212,8 @@ public class XRHand : MonoBehaviour, IXRControllerInterface
     private void Update()
     {
 
-
         
+
     }
 
     public Vector2 GetPointerScreenPosition()
